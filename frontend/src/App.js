@@ -1,0 +1,43 @@
+import React from "react";
+import './App.css';
+import UserList from "./components/UserList";
+import axios from "axios";
+import Footer from "./components/Footer";
+
+
+class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            'users': []
+        }
+    }
+
+    componentDidMount() {
+        axios
+            .get('http://127.0.0.1:8000/api/todo/')
+            .then(response => {
+                const users = response.data
+                this.setState({
+                    'users': users
+                })
+            })
+            .catch(error => console.log(error))
+    }
+
+    render() {
+        return (
+            <body>
+                <header>
+                </header>
+                <div className="content">
+                <UserList users={this.state.users}/>
+                </div>
+                <Footer/>
+            </body>
+
+        )
+    }
+}
+
+export default App;
