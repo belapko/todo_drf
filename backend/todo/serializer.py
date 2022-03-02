@@ -1,8 +1,14 @@
 from rest_framework.serializers import ModelSerializer
-from .models import User
+from .models import Project, Todo
 
 
-class UserModelSerializer(ModelSerializer):
+class ProjectModelSerializer(ModelSerializer):
     class Meta:
-        model = User
-        fields = ('username', 'first_name', 'last_name', 'email')
+        model = Project
+        fields = '__all__'
+
+
+class TodoModelSerializer(ModelSerializer):
+    class Meta:
+        model = Todo
+        fields = '__all__'

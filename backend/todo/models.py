@@ -1,8 +1,20 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
-from django.utils.translation import gettext_lazy as _
+from users.models import User
 
 
-class User(AbstractUser):
-    email = models.EmailField(_('email address'), unique=True)
+class Project(models.Model):
+    name = models.CharField(max_length=128, unique=True)
+    users = models.ManyToManyField(User)
+    repository = models.URLField(blank=True)
 
+    def __str__(self):
+        return self.name
+
+
+class Todo(models.Model):
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    text = models.TextField(blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    creator = models.ForeignKey(User, on_delete=models.PROTECT)
+    is_active = models.BooleanField(default=True)
