@@ -19,23 +19,13 @@ const Navbar = () => {
         <div
             style={{
                 marginLeft: 0,
-            }}
-        >
-
-            {/*<BrowserRouter>*/}
-            {/*    <nav>*/}
-            {/*        <li><Link to='/'>Users</Link></li>*/}
-            {/*        <li><Link to='/projects'>Projects</Link></li>*/}
-            {/*        <li><Link to='/todos'>Todos</Link></li>*/}
-            {/*    </nav>*/}
-            {/*</BrowserRouter>*/}
+            }}>
 
             <h2>Menu</h2>
             <Button
                 aria-controls="simple-menu"
                 aria-haspopup="true"
-                onClick={handleClick}
-            >
+                onClick={handleClick}>
                 open
             </Button>
 
@@ -43,16 +33,10 @@ const Navbar = () => {
                 keepMounted
                 anchorEl={anchorEl}
                 onClose={handleClose}
-                open={Boolean(anchorEl)}
-            >
-                <BrowserRouter>
-
+                open={Boolean(anchorEl)}>
                         <MenuItem onClick={handleClose}><Link to='/'>Users</Link></MenuItem>
                         <MenuItem onClick={handleClose}><Link to='/projects'>Projects</Link></MenuItem>
                         <MenuItem onClick={handleClose}><Link to='/todos'>Todos</Link></MenuItem>
-                        {/*<MenuItem onClick={handleClose}>Logout</MenuItem>*/}
-
-                </BrowserRouter>
             </Menu>
         </div>
     );

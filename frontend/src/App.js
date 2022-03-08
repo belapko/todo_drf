@@ -9,6 +9,7 @@ import TodoList from "./components/TodosList";
 import Navbar from "./components/Menu";
 
 
+
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -53,9 +54,10 @@ class App extends React.Component {
         return (
 
             <body>
-            <Navbar/>
+
             <div className="content">
                 <BrowserRouter>
+                    <Navbar/>
                     <Routes>
                         <Route exact path='/' element={<UserList users={this.state.users}/>}/>
                         <Route exact path='/projects' element={<ProjectList projects={this.state.projects}/>}/>
