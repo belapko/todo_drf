@@ -4,7 +4,9 @@ const ProjectItem = ({project}) => {
             <td>
                 {project.name}
             </td>
-            {project.repository ? <td>{project.repository}</td> : <td>None</td>}
+            {
+                project.repository ? <td>{project.repository}</td> : <td>None</td>
+            }
             <td>
                 {project.users}
             </td>
@@ -26,7 +28,7 @@ const ProjectList = ({projects}) => {
                 Users
             </th>
 
-            {projects.map((project) => <ProjectItem project={project}/> )}
+            {projects.map((project) => <ProjectItem project={project}/>)}
         </table>
     )
 }

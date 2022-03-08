@@ -16,11 +16,12 @@ body {
 footer {
     background: red;
     padding: 2rem;
-
-
 }
 
+.notfound {
+    text-align: center;
 
+}
 
 table {
     font-size: 15px;
