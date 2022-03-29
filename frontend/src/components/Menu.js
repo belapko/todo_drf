@@ -6,7 +6,6 @@ import {Link} from "react-router-dom";
 
 const Navbar = () => {
     const [anchorEl, setAnchorEl] = React.useState(null);
-
     const handleClose = () => {
         setAnchorEl(null);
     };
@@ -37,6 +36,7 @@ const Navbar = () => {
                         <MenuItem onClick={handleClose}><Link to='/'>Users</Link></MenuItem>
                         <MenuItem onClick={handleClose}><Link to='/projects'>Projects</Link></MenuItem>
                         <MenuItem onClick={handleClose}><Link to='/todos'>Todos</Link></MenuItem>
+                        {/*<MenuItem onClick={handleClose}><Link to='/login'>Войти</Link></MenuItem>*/}
             </Menu>
         </div>
     );
