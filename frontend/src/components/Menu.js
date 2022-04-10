@@ -36,6 +36,7 @@ const Navbar = () => {
                         <MenuItem onClick={handleClose}><Link to='/'>Users</Link></MenuItem>
                         <MenuItem onClick={handleClose}><Link to='/projects'>Projects</Link></MenuItem>
                         <MenuItem onClick={handleClose}><Link to='/todos'>Todos</Link></MenuItem>
+                        <MenuItem onClick={handleClose}><Link to='/todos/create'>CreateTodo</Link></MenuItem>
                         {/*<MenuItem onClick={handleClose}><Link to='/login'>Войти</Link></MenuItem>*/}
             </Menu>
         </div>
