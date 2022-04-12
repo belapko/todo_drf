@@ -9,6 +9,7 @@ from rest_framework.authtoken.views import obtain_auth_token
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from graphene_django.views import GraphQLView
+from django.views.generic import TemplateView
 
 
 router = DefaultRouter()
@@ -35,4 +36,5 @@ urlpatterns = [
     path('api-auth-token/', obtain_auth_token),
     path('swagger/', schema_view.with_ui()),
     path('graphql/', csrf_exempt(GraphQLView.as_view(graphiql=True))), # Graphene interactive ql для удобной отладки
+    path('', TemplateView.as_view(template_name='index.html')),
 ]
