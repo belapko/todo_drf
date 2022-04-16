@@ -1,4 +1,4 @@
-const TodoItem = ({todo}) => {
+const TodoItem = ({todo, deleteTodo}) => {
     return (
         <tr>
             <td>
@@ -14,12 +14,15 @@ const TodoItem = ({todo}) => {
             <td>
                 {todo.text}
             </td>
+            <td>
+                <button onClick={() => deleteTodo(todo.id)}>Удалить</button>
+            </td>
         </tr>
     )
 }
 
 
-const TodoList = ({todos}) => {
+const TodoList = ({todos, deleteTodo}) => {
     return (
         <table>
             <th>
@@ -37,7 +40,10 @@ const TodoList = ({todos}) => {
             <th>
                 Text
             </th>
-            {todos.map((todo) => <TodoItem todo={todo}/> )}
+            <th>
+                Delete?
+            </th>
+            {todos.map((todo) => <TodoItem todo={todo} deleteTodo={deleteTodo}/> )}
         </table>
     )
 }

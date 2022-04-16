@@ -1,4 +1,4 @@
-const ProjectItem = ({project}) => {
+const ProjectItem = ({project, deleteProject}) => {
     return (
         <tr>
             <td>
@@ -10,12 +10,15 @@ const ProjectItem = ({project}) => {
             <td>
                 {project.users}
             </td>
+            <td>
+                <button onClick={() => deleteProject(project.id)}>Удалить</button>
+            </td>
         </tr>
     )
 }
 
 
-const ProjectList = ({projects}) => {
+const ProjectList = ({projects, deleteProject}) => {
     return (
         <table>
             <th>
@@ -27,8 +30,10 @@ const ProjectList = ({projects}) => {
             <th>
                 Users
             </th>
-
-            {projects.map((project) => <ProjectItem project={project}/>)}
+            <th>
+                Delete?
+            </th>
+            {projects.map((project) => <ProjectItem project={project} deleteProject={deleteProject}/>)}
         </table>
     )
 }
